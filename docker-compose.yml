@@ -1,0 +1,75 @@
+name: pedidos
+
+x-salud-bd: &salud-bd
+  test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U admin -d pedidos"]
+  interval: 5s
+  timeout: 3s
+  retries: 12
+
+x-backend: &backend
+  build: ./backend
+  environment: &entorno-backend
+    DB_PRIMARIA_URL: jdbc:postgresql://db-primary:5432/pedidos?connectTimeout=2
+    DB_REPLICA_URL: jdbc:postgresql://db-replica:5432/pedidos?connectTimeout=2
+    DB_USUARIO: app
+    DB_CLAVE: ${APP_DB_PASSWORD:?Definir APP_DB_PASSWORD en .env}
+  depends_on:
+    db-primary:
+      condition: service_healthy
+  healthcheck:
+    test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:8080/api/health"]
+    interval: 5s
+    timeout: 3s
+    retries: 12
+
+services:
+  nginx:
+    build: ./frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend1
+      - backend2
+
+  backend1:
+    <<: *backend
+    environment:
+      <<: *entorno-backend
+      NODO_ID: nodo-1
+
+  backend2:
+    <<: *backend
+    environment:
+      <<: *entorno-backend
+      NODO_ID: nodo-2
+
+  db-primary:
+    image: postgres:16.15-alpine
+    environment:
+      POSTGRES_DB: pedidos
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Definir POSTGRES_PASSWORD en .env}
+      APP_DB_PASSWORD: ${APP_DB_PASSWORD:?Definir APP_DB_PASSWORD en .env}
+      REPLICATION_PASSWORD: ${REPLICATION_PASSWORD:?Definir REPLICATION_PASSWORD en .env}
+    volumes:
+      - datos-primaria:/var/lib/postgresql/data
+      - ./base_de_datos/primaria:/docker-entrypoint-initdb.d:ro
+    healthcheck: *salud-bd
+
+  db-replica:
+    image: postgres:16.15-alpine
+    user: postgres
+    entrypoint: ["sh", "/iniciar_replica.sh"]
+    environment:
+      PGPASSWORD: ${REPLICATION_PASSWORD:?Definir REPLICATION_PASSWORD en .env}
+    volumes:
+      - datos-replica:/var/lib/postgresql/data
+      - ./base_de_datos/replica/iniciar_replica.sh:/iniciar_replica.sh:ro
+    depends_on:
+      db-primary:
+        condition: service_healthy
+    healthcheck: *salud-bd
+
+volumes:
+  datos-primaria:
+  datos-replica:

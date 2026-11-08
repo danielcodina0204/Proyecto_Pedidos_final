@@ -1,0 +1,4 @@
+# Fin de línea LF para que los scripts .sh funcionen dentro de los contenedores Linux
+* text=auto eol=lf
+*.cmd text eol=crlf
+*.png binary
