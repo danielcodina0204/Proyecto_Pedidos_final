@@ -220,4 +220,4 @@ La interfaz mantuvo la lista visible y mostró el aviso al intentar crear un ped
 | PostgreSQL | 16.15 | Base de datos | Opción permitida por el proyecto; replicación por streaming incluida sin extensiones |
 | NGINX | 1.30.6 | Balanceador de carga y servidor web | Mecanismo sugerido por el proyecto; detecta nodos caídos y reintenta en otro nodo |
 | Docker Compose | v2 | Despliegue | Sugerido por el proyecto para simular los nodos distribuidos en un solo equipo |
-| JUnit y ESLint | 6.0.3 y 10.14.0 | Pruebas y análisis estático | Verifican el funcionamiento y la calidad del código |
+| JUnit | 6.0.3 | Pruebas | Verifican el funcionamiento del sistema completo y sus mecanismos de tolerancia a fallos |

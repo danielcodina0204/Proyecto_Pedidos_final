@@ -2,7 +2,8 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 
-export type Estado = 'pendiente' | 'en proceso' | 'enviado' | 'entregado';
+export const ESTADOS = ['pendiente', 'en proceso', 'enviado', 'entregado'] as const;
+export type Estado = (typeof ESTADOS)[number];
 
 export interface Pedido {
   id: number;

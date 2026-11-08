@@ -34,7 +34,9 @@ Para detener el sistema: `docker compose down`. Los pedidos se conservan para el
 
 ## 2. Funciones disponibles
 
-La pantalla tiene tres zonas: la cabecera con el nodo que atendió la última consulta, el formulario a la izquierda y la lista de pedidos a la derecha. En pantallas pequeñas el formulario aparece arriba y la lista debajo.
+La pantalla tiene tres zonas: la cabecera con el nodo que atendió la última consulta, el formulario a la izquierda y, a la derecha, el total de pedidos por estado y la lista de pedidos. En pantallas pequeñas el formulario aparece arriba y la lista debajo.
+
+Los mensajes del sistema aparecen como avisos abajo a la derecha. Los de éxito se ocultan solos a los 4 segundos; los de error quedan visibles hasta cerrarlos con **×**.
 
 ![Pantalla principal](img/vista_principal.png)
 
@@ -68,7 +70,14 @@ Cada pedido tiene una barra de cuatro tramos y una lista desplegable con los est
 
 ### 2.5 Eliminar un pedido
 
-Pulsar **Eliminar** en la fila del pedido y confirmar en el cuadro de diálogo. La eliminación no se puede deshacer.
+Pulsar **Eliminar** en la fila del pedido. El pedido desaparece de la lista y abajo a la derecha aparece un aviso con una cuenta regresiva de 5 segundos:
+
+- Para conservarlo, pulsar **Deshacer** antes de que termine la cuenta.
+- Al terminar la cuenta, el pedido se elimina definitivamente y aparece el aviso «Pedido N eliminado.».
+
+Si se cierra la página antes de que termine la cuenta, el pedido no se elimina.
+
+![Eliminación con opción de deshacer](img/eliminacion.png)
 
 ### 2.6 Mensajes del sistema
 

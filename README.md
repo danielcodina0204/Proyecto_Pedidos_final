@@ -58,12 +58,6 @@ En Windows se usa `mvnw.cmd` en lugar de `./mvnw`.
 - `IntegracionIT`: pruebas de integración a través de NGINX.
 - `FallosIT`: pruebas de fallo; detienen y vuelven a levantar contenedores.
 
-Análisis estático del frontend: `npm run lint` en `frontend/`.
-
-## Desarrollo del frontend
-
-Con el sistema levantado, en `frontend/` ejecutar `npm install` y `npm start`. La interfaz queda en <http://localhost:4200> con recarga automática y las peticiones `/api` se envían a <http://localhost:8080>.
-
 ## Simular fallos manualmente
 
 ```bash

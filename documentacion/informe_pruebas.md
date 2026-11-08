@@ -102,13 +102,13 @@ Extracto de la salida de `mvnw.cmd verify`:
 | Verificación | Resultado |
 |---|---|
 | Compilación del backend con todas las advertencias de `javac` tratadas como errores (`-Xlint:all -Werror`) | Sin advertencias |
-| Análisis estático del frontend (`npm run lint`, angular-eslint) | Sin observaciones |
+| Compilación del frontend en modo estricto de TypeScript y plantillas (`ng build`) | Sin errores ni advertencias |
 | Vulnerabilidades en dependencias del backend (49 dependencias consultadas en la base pública OSV) | No se encontraron vulnerabilidades conocidas |
 | Vulnerabilidades en dependencias del frontend (`npm audit`) | 0 vulnerabilidades |
 | Peticiones maliciosas a la API (inyección SQL, campos no esperados, decimales, JSON malformado, métodos no permitidos, cuerpo de 20 KB, recorrido de rutas) | Todas rechazadas con 400, 405, 413 o 415; los textos con código SQL o HTML se guardan como texto sin ejecutarse |
 | Uso de la interfaz en navegador (Microsoft Edge a 1440, 1024 y 375 px de ancho) | Creación, cambio de estado, edición, validación y eliminación funcionaron; la página no se desborda en ninguno de los tres anchos |
 | Dos ventanas sobre el mismo pedido: se edita la cantidad en una y se cambia el estado en la otra, sin recargarla | Se guardan los dos cambios: la cantidad editada se conserva |
-| Accesibilidad de la interfaz (contraste, teclado y foco) | Contraste mínimo de 6,24:1; todos los controles se usan con teclado y muestran el foco; tras eliminar un pedido el foco pasa al título de la lista |
+| Accesibilidad de la interfaz (contraste, teclado y foco) | Contraste mínimo de 6,24:1; todos los controles se usan con teclado y muestran el foco; al eliminar un pedido el foco pasa al botón **Deshacer** y, cuando el aviso desaparece, al título de la lista |
 
 ## 6. Conclusiones
 

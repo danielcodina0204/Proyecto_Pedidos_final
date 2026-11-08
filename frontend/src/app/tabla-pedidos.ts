@@ -1,7 +1,5 @@
 import { Component, input, output } from '@angular/core';
-import { Estado, Pedido } from './pedidos-api';
-
-const ESTADOS: readonly Estado[] = ['pendiente', 'en proceso', 'enviado', 'entregado'];
+import { ESTADOS, Estado, Pedido } from './pedidos-api';
 
 @Component({
   selector: 'app-tabla-pedidos',
@@ -31,7 +29,7 @@ const ESTADOS: readonly Estado[] = ['pendiente', 'en proceso', 'enviado', 'entre
                 <td class="texto">{{ pedido.producto }}</td>
                 <td class="numero">{{ pedido.cantidad }}</td>
                 <td>
-                  <div class="estado">
+                  <div class="estado" [attr.data-estado]="pedido.estado">
                     <span class="pista" aria-hidden="true">
                       @for (estado of estados; track estado; let paso = $index) {
                         <span class="tramo" [class.activo]="paso <= estados.indexOf(pedido.estado)"></span>
