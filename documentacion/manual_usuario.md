@@ -24,10 +24,10 @@ Proyecto Final de Sistemas Distribuidos
 4. Construir y levantar el sistema:
 
    ```bash
-   docker compose up -d --build
+   docker compose up -d --build --wait
    ```
 
-   La primera vez tarda unos minutos porque descarga las imágenes y compila la aplicación.
+   La primera vez tarda unos minutos porque descarga las imágenes y compila la aplicación. El comando termina cuando los cinco contenedores están listos.
 5. Abrir <http://localhost:8080> en el navegador.
 
 Para detener el sistema: `docker compose down`. Los pedidos se conservan para el próximo inicio. Para borrarlos: `docker compose down -v`.

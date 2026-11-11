@@ -22,7 +22,6 @@ docker-compose.yml
 
 - Docker Desktop con Docker Compose v2.
 - JDK 25 o superior, solo para ejecutar las pruebas. Maven se descarga automáticamente con el wrapper `mvnw`.
-- Node.js 22.22, 24.15 o superior, solo para desarrollar el frontend fuera de Docker.
 
 ## Despliegue
 
@@ -37,7 +36,7 @@ docker-compose.yml
 2. Construir y levantar los cinco contenedores (NGINX, dos nodos backend, base primaria y réplica):
 
    ```bash
-   docker compose up -d --build
+   docker compose up -d --build --wait
    ```
 
 3. Abrir <http://localhost:8080>.

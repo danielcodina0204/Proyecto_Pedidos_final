@@ -13,7 +13,7 @@ Proyecto Final de Sistemas Distribuidos
 |---|---|
 | Fecha de ejecución | 8 de noviembre de 2026 |
 | Sistema operativo | Windows 11 con Docker Desktop (Docker 29.7.2, Compose v5.4.0) |
-| Sistema bajo prueba | Cinco contenedores levantados con `docker compose up -d --build` |
+| Sistema bajo prueba | Cinco contenedores levantados con `docker compose up -d --build --wait` |
 | Herramientas | JUnit 6.0.3, Maven 3.9.16 (Surefire para unitarias y Failsafe para integración y fallo), JDK 26 |
 | Comando | `mvnw.cmd verify` desde la carpeta `backend/` |
 
