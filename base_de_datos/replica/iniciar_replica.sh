@@ -1,5 +1,3 @@
-#!/bin/sh
-# Clona la base primaria la primera vez y arranca PostgreSQL como réplica de solo lectura.
 set -eu
 
 if [ ! -s "$PGDATA/PG_VERSION" ]; then

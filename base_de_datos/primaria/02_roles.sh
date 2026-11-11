@@ -1,5 +1,4 @@
-#!/bin/sh
-# Usuarios con el mínimo privilegio: "app" solo opera pedidos y "replicador" solo replica.
+
 set -e
 
 psql -v ON_ERROR_STOP=1 -U "$POSTGRES_USER" -d "$POSTGRES_DB" \

@@ -24,10 +24,10 @@ Proyecto Final de Sistemas Distribuidos
 4. Construir y levantar el sistema:
 
    ```bash
-   docker compose up -d --build
+   docker compose up -d --build --wait
    ```
 
-   La primera vez tarda unos minutos porque descarga las imágenes y compila la aplicación.
+   La primera vez tarda unos minutos porque descarga las imágenes y compila la aplicación. El comando termina cuando los cinco contenedores están listos.
 5. Abrir <http://localhost:8080> en el navegador.
 
 Para detener el sistema: `docker compose down`. Los pedidos se conservan para el próximo inicio. Para borrarlos: `docker compose down -v`.
@@ -91,17 +91,3 @@ Si se cierra la página antes de que termine la cuenta, el pedido no se elimina.
 | No se pudo conectar con el servidor. | El sistema no está en ejecución | Verificar que Docker y el sistema estén levantados |
 
 ![Error de validación](img/error_validacion.png)
-
-## 3. Capturas del sistema funcionando
-
-**Uso desde un teléfono (375 px de ancho).** La lista se desplaza horizontalmente para ver el estado y las acciones.
-
-![Vista en teléfono](img/vista_movil.png)
-
-**Funcionamiento con un nodo caído.** Con `backend1` detenido, todas las peticiones las atiende `nodo-2` y el usuario no percibe errores.
-
-![Nodo caído](img/caida_nodo.png)
-
-**Modo solo lectura.** Con la base primaria detenida, la lista sigue disponible y el sistema avisa que no se pueden registrar cambios.
-
-![Modo solo lectura](img/modo_solo_lectura.png)
