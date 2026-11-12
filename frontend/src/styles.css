@@ -90,17 +90,6 @@ h2 {
   color: var(--acento);
 }
 
-.punto {
-  width: 0.5rem;
-  height: 0.5rem;
-  background: var(--acento);
-  border-radius: 50%;
-}
-
-.nodo-caido .punto {
-  background: var(--peligro);
-}
-
 /* Distribución */
 
 .contenido {

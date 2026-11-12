@@ -17,7 +17,6 @@ const DURACION_AVISO_MS = 4000;
           <p class="subtitulo">Sistema distribuido tolerante a fallos</p>
         </div>
         <p class="nodo" [class.nodo-caido]="!nodo()">
-          <span class="punto" aria-hidden="true"></span>
           @if (nodo(); as actual) {
             Atendido por <strong>{{ actual }}</strong>
           } @else {
