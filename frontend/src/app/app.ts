@@ -18,7 +18,7 @@ const DURACION_AVISO_MS = 4000;
         </div>
         <p class="nodo" [class.nodo-caido]="!nodo()">
           @if (nodo(); as actual) {
-            Atendido por <strong>{{ actual }}</strong>
+            Atendido por: <strong>{{ actual }}</strong>
           } @else {
             Sin respuesta de los nodos
           }
