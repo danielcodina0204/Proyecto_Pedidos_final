@@ -49,7 +49,7 @@ import { ESTADOS, Estado, Pedido } from './pedidos-api';
                 <td class="acciones-fila">
                   <button
                     type="button"
-                    class="secundario"
+                    class="editar"
                     (click)="editar.emit(pedido)"
                     [attr.aria-label]="'Editar pedido ' + pedido.id"
                   >

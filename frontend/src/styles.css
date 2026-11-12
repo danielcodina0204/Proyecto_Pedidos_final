@@ -9,7 +9,10 @@
   --acento-oscuro: #0a4f4b;
   --acento-claro: #e3f1ef;
   --peligro: #a3261c;
+  --peligro-oscuro: #7f1d15;
   --peligro-claro: #fdeceb;
+  --azul: #1d5fbf;
+  --azul-oscuro: #164a96;
   --radio: 8px;
   --sombra: 0 1px 2px rgb(27 36 48 / 6%), 0 1px 3px rgb(27 36 48 / 8%);
 
@@ -252,14 +255,24 @@ button.secundario:hover {
   background: var(--acento-claro);
 }
 
+button.editar {
+  background: var(--azul);
+  border-color: var(--azul);
+}
+
+button.editar:hover {
+  background: var(--azul-oscuro);
+  border-color: var(--azul-oscuro);
+}
+
 button.peligro {
-  color: var(--peligro);
-  background: var(--superficie);
+  background: var(--peligro);
   border-color: var(--peligro);
 }
 
 button.peligro:hover {
-  background: var(--peligro-claro);
+  background: var(--peligro-oscuro);
+  border-color: var(--peligro-oscuro);
 }
 
 /* Tabla de pedidos */
