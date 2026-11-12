@@ -1,5 +1,4 @@
-# Sistema Distribuido de Gestión de Pedidos Tolerante a Fallos
-
+# Sistema Distribuido de Gestión de Pedidos
 Aplicación web para crear, listar, actualizar y eliminar pedidos, con control de estado (pendiente, en proceso, enviado, entregado). El sistema funciona sobre dos nodos backend balanceados por NGINX y una base de datos PostgreSQL con réplica, por lo que sigue operando ante la caída de un nodo o de la base de datos primaria.
 
 **Proyecto Final de Sistemas Distribuidos**
